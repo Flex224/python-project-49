@@ -19,7 +19,8 @@ def even_game():
             print('Correct!')
             right_answers += 1
         else:
-            print(f"'{user_answer}' is wrong answer ;(. Correct answer was '{answer}'")
+            print(f"'{user_answer}' is wrong answer ;(. "
+                  f"Correct answer was '{answer}'")
             print(f"Let's try again, {name}!")
             right_answers = 0
         if right_answers == 3:

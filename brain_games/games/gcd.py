@@ -1,20 +1,19 @@
 import random
 import prompt
+import math
 from brain_games.cli import welcome_user
 
 
-def calc():
+def gcd_game():
     name = welcome_user()
-    print('What is the result of the expression?')
+    print('Find the greatest common divisor of given numbers.')
     right_answers = 0
     while right_answers < 3:
-        operator = random.choice(['+', '-', '*'])
-        random_num1 = random.randint(1, 10)
-        random_num2 = random.randint(1, 10)
-        task = f"{random_num1} {operator} {random_num2}"
-        correct_answer = eval(task)
-        user_answer = prompt.string(f"Question: {task}\nYour answer : ")
-
+        random_number1 = random.randint(0, 100)
+        random_number2 = random.randint(0, 100)
+        print(f"Question: {random_number1} {random_number2}")
+        user_answer = prompt.string('Your answer: ')
+        correct_answer = math.gcd(random_number1, random_number2)
         if user_answer == str(correct_answer):
             print('Correct!')
             right_answers += 1
