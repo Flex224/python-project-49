@@ -1,5 +1,4 @@
 import random
-import prompt
 from brain_games.cli import welcome_user
 
 
@@ -13,9 +12,9 @@ def calc():
         random_num2 = random.randint(1, 10)
         task = f"{random_num1} {operator} {random_num2}"
         correct_answer = eval(task)
-        user_answer = prompt.string(f"Question: {task}\nYour answer : ")
+        user_answer = int(input(f"Question: {task}\nYour answer : "))
 
-        if user_answer == str(correct_answer):
+        if user_answer == (correct_answer):
             print('Correct!')
             right_answers += 1
         else:

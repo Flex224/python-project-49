@@ -1,5 +1,4 @@
 import random
-import prompt
 import math
 from brain_games.cli import welcome_user
 
@@ -12,9 +11,9 @@ def gcd_game():
         random_number1 = random.randint(0, 100)
         random_number2 = random.randint(0, 100)
         print(f"Question: {random_number1} {random_number2}")
-        user_answer = prompt.string('Your answer: ')
+        user_answer = int(input('Your answer: '))
         correct_answer = math.gcd(random_number1, random_number2)
-        if user_answer == str(correct_answer):
+        if user_answer == (correct_answer):
             print('Correct!')
             right_answers += 1
         else:
