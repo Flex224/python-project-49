@@ -1,38 +1,25 @@
 from random import randint
-from brain_games.cli import welcome_user
 
 
-def generate_progression():
-    progression = []
-    first_number = randint(1, 20)
-    step = randint(1, 10)
-    length = randint(5, 10)
-    for _ in range(length):
-        progression.append(first_number)
-        first_number += step
-    correct_answer = progression[randint(0, len(progression) - 1)]
-    hidden_index = progression.index(correct_answer)
-    progression[hidden_index] = '..'
-    return progression, correct_answer
+DESCRIPTION = 'What number is missing in the progression?'
 
 
-def progression_game():
-    name = welcome_user()
-    print('What number is missing in the progression?')
-    right_answers = 0
-    while right_answers < 3:
-        progression, correct_answer = generate_progression()
-        print(f'Question: {progression}')
-        user_answer = int(input('Your answer: '))
+def make_progression(progression_len, min_step, max_step, min_first_num, max_first_num):
+    first_num = randint(min_first_num, max_first_num)
+    progression_step = randint(min_step, max_step)
+    progression = [first_num]
+    for i in range(progression_len - 1):
+        next_num = first_num + progression_step
+        progression.append(next_num)
+        first_num = next_num
+    return progression
 
-        if user_answer == correct_answer:
-            print('Correct!')
-            right_answers += 1
-        else:
-            print(f"'{user_answer}' is wrong answer ;(. "
-                  f"Correct answer was '{correct_answer}'")
-            print(f"Let's try again, {name}")
-            right_answers = 0
 
-        if right_answers == 3:
-            print(f'Congratulations, {name}!')
+def make_game():
+    progression = make_progression(progression_len=10, min_step=1, max_step=10,
+                                   min_first_num=0, max_first_num=100)
+    random_index = randint(0, len(progression) - 1)
+    correct_answer = progression[random_index]
+    progression[random_index] = '..'
+    question = ' '.join(str(num) for num in progression)
+    return question, str(correct_answer)
