@@ -4,7 +4,8 @@ from random import randint
 DESCRIPTION = 'What number is missing in the progression?'
 
 
-def make_progression(progression_len, min_step, max_step, min_first_num, max_first_num):
+def make_progression(progression_len, min_step, max_step,
+                     min_first_num, max_first_num):
     first_num = randint(min_first_num, max_first_num)
     progression_step = randint(min_step, max_step)
     progression = [first_num]
