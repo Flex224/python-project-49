@@ -8,11 +8,9 @@ def make_progression(progression_len, min_step, max_step,
                      min_first_num, max_first_num):
     first_num = randint(min_first_num, max_first_num)
     progression_step = randint(min_step, max_step)
-    progression = [first_num]
-    for i in range(progression_len - 1):
-        next_num = first_num + progression_step
-        progression.append(next_num)
-        first_num = next_num
+    progression = list(range(first_num,
+                             first_num + progression_step * progression_len,
+                             progression_step))
     return progression
 
 
