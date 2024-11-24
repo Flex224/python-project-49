@@ -10,7 +10,7 @@ def start(game):
     print(f'Hello, {name}!')
     print(game.DESCRIPTION)
     for counter in range(1, MAX_ROUNDS + 1):
-        question, correct_answer = game.make_game()
+        question, correct_answer = game.generate_expression()
         print(f'Question: {question}')
         user_answer = prompt.string('Your answer: ')
         if user_answer == correct_answer:
@@ -20,5 +20,5 @@ def start(game):
                   f"Correct answer was '{correct_answer}'.\n"
                   f"Let\'s try again, {name}!")
             break
-        if counter == MAX_ROUNDS:
+    else:
             print(f'Congratulations, {name}!')

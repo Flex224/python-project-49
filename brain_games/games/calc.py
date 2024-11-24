@@ -4,7 +4,7 @@ from random import randint, choice
 DESCRIPTION = 'What is the result of the expression?'
 
 
-def make_game():
+def generate_expression():
     operator = choice(['+', '-', '*'])
     random_num1 = randint(1, 10)
     random_num2 = randint(1, 10)

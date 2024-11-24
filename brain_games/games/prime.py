@@ -13,7 +13,7 @@ def is_prime(number):
     return True
 
 
-def make_game():
+def generate_expression():
     number = randint(1, 100)
     question = str(number)
 

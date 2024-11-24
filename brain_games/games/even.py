@@ -4,7 +4,7 @@ from random import randint
 DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def make_game():
+def generate_expression():
     number = randint(1, 100)
     question = (number)
     if number % 2 == 0:
